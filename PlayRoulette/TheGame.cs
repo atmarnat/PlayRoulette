@@ -76,9 +76,12 @@ namespace TheGame
                 {
                     Console.Write("\tPick a bin 0-37(37 is 00): ");
                     guess = getChoice();
-                    bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
-                    betsChoice.Add(choice);
-                    betsMade.Add(betAmount);
+                    if (s.Elapsed < TimeSpan.FromSeconds(time))
+                    {
+                        bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
+                        betsChoice.Add(choice);
+                        betsMade.Add(betAmount);
+                    }
                 }
                 else if (choice == "dozens")
                 {
@@ -89,23 +92,32 @@ namespace TheGame
                     if (choice == "high") guess = 25;
 
                     choice = "dozens";
-                    bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
-                    betsChoice.Add(choice);
-                    betsMade.Add(betAmount);
+                    if (s.Elapsed < TimeSpan.FromSeconds(time))
+                    {
+                        bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
+                        betsChoice.Add(choice);
+                        betsMade.Add(betAmount);
+                    }
                 }
                 else if (choice == "lows")
                 {
                     guess = 1;
-                    bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
-                    betsChoice.Add(choice);
-                    betsMade.Add(betAmount);
+                    if (s.Elapsed < TimeSpan.FromSeconds(time))
+                    {
+                        bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
+                        betsChoice.Add(choice);
+                        betsMade.Add(betAmount);
+                    }
                 }
                 else if (choice == "highs")
                 {
                     guess = 36;
-                    bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
-                    betsChoice.Add(choice);
-                    betsMade.Add(betAmount);
+                    if (s.Elapsed < TimeSpan.FromSeconds(time))
+                    {
+                        bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
+                        betsChoice.Add(choice);
+                        betsMade.Add(betAmount);
+                    }
                 }
                 else if (choice == "columns")
                 {
@@ -116,23 +128,32 @@ namespace TheGame
                     if (choice == "third") guess = 3;
 
                     choice = "columns";
-                    bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
-                    betsChoice.Add(choice);
-                    betsMade.Add(betAmount);
+                    if (s.Elapsed < TimeSpan.FromSeconds(time))
+                    {
+                        bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
+                        betsChoice.Add(choice);
+                        betsMade.Add(betAmount);
+                    }
                 }
                 else if (choice == "reds" || choice == "odds")
                 {
                     guess = 1;
-                    bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
-                    betsChoice.Add(choice);
-                    betsMade.Add(betAmount);
+                    if (s.Elapsed < TimeSpan.FromSeconds(time))
+                    {
+                        bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
+                        betsChoice.Add(choice);
+                        betsMade.Add(betAmount);
+                    }
                 }
                 else if (choice == "blacks" || choice == "evens")
                 {
                     guess = 2;
-                    bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
-                    betsChoice.Add(choice);
-                    betsMade.Add(betAmount);
+                    if (s.Elapsed < TimeSpan.FromSeconds(time))
+                    {
+                        bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
+                        betsChoice.Add(choice);
+                        betsMade.Add(betAmount);
+                    }
                 }
                 else if (choice == "split") //checking rows, very unclean, but it probably works
                 {
@@ -161,9 +182,12 @@ namespace TheGame
                             }
                         }
                     }
-                    bets.Add(SetBet(binArr, choice, actual, guess, secondGuess, betAmount));
-                    betsChoice.Add(choice);
-                    betsMade.Add(betAmount);
+                    if (s.Elapsed < TimeSpan.FromSeconds(time))
+                    {
+                        bets.Add(SetBet(binArr, choice, actual, guess, secondGuess, betAmount));
+                        betsChoice.Add(choice);
+                        betsMade.Add(betAmount);
+                    }
                 }
                 else if (choice == "corner")
                 {
@@ -181,21 +205,30 @@ namespace TheGame
                             Console.WriteLine("Invalid corner location.");
                         }
                     }
-                    bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
-                    betsChoice.Add(choice);
-                    betsMade.Add(betAmount);
+                    if (s.Elapsed < TimeSpan.FromSeconds(time))
+                    {
+                        bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
+                        betsChoice.Add(choice);
+                        betsMade.Add(betAmount);
+                    }
 
                 }
                 else
                 {
                     Console.Write("\tPick a bin 1-36: ");
                     guess = getChoice();
-                    bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
-                    betsChoice.Add(choice);
-                    betsMade.Add(betAmount);
+                    if (s.Elapsed < TimeSpan.FromSeconds(time))
+                    {
+                        bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
+                        betsChoice.Add(choice);
+                        betsMade.Add(betAmount);
+                    }
                 }
-                wallet -= betAmount;
-                count++;
+                if (s.Elapsed < TimeSpan.FromSeconds(time))
+                {
+                    wallet -= betAmount;
+                    count++;
+                }
             }
             s.Stop();
 
