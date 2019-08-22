@@ -1,8 +1,17 @@
 # PlayRoulette
 A simple console-based roulette game, now with a "wheel" like object that goes while you are placing bets, and an executable to play wherever you want! (on windows)
 
-The game uses an executable in order to run a "wheel-like" object. In order to create this executable, I took part of the code from https://github.com/gerard-rappa/Roulette and made a few modifications. Build it in visual studios as a .NET Framework project, take the executable generated, and place it in the debug folder in the bin, where the executable is created for roulette.
-
+The game uses an executable in order to run a "wheel-like" object. In order to create this executable, I took part of the code from https://github.com/gerard-rappa/Roulette and made a few modifications. By default, this executable does not exist and must be created in order to be used. These are the steps that you need in order to get it to work:
+    1. Clone https://github.com/atmarnat/PlayRoulette.git in Visual Studio
+    1. Build the project (or just debug it)
+    1. Close the project
+    1. Create a new .NET Framework C# project in VS named Spinner
+    1. Replace the default file with the code below
+    1. Build the project, but DO NOT DEBUG IT. Debugging will cause it to crash
+    1. Locate the executable Spinner.exe under \bin\Debug
+    1. Move the executable to \PlayRoulette\bin\Debug, in the PlayRoulette project
+    1. Build the project again
+    1. Either run the PlayRoulette from VS or use the executable anywhere
 ```C#
 using System;
 using System.Collections.Generic;
