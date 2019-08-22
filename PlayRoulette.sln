@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayRoulette", "PlayRoulette\PlayRoulette.csproj", "{DA359F66-590A-4181-959B-510241BF0624}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA359F66-590A-4181-959B-510241BF0624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA359F66-590A-4181-959B-510241BF0624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA359F66-590A-4181-959B-510241BF0624}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA359F66-590A-4181-959B-510241BF0624}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {377E4315-A6B4-4A13-BB1B-1D1783F9770C}
+	EndGlobalSection
+EndGlobal
