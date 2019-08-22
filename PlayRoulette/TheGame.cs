@@ -5,6 +5,7 @@ using Wheel;
 using Roulette;
 using System.Threading;
 using System.Diagnostics;
+using System.IO;
 
 namespace TheGame
 {
@@ -40,8 +41,14 @@ namespace TheGame
             int actual = r.Next(0, 37);
             int time = 75;
             s.Start();
-            var process = new Process();
-            Process.Start(@"Spinner.exe", actual.ToString());
+            
+            //checks to see if there is an executable to run named spinner. If so, run it
+            var process = @"Spinner.exe";
+            if (File.Exists("Spinner.exe"))
+            {
+                Process.Start(process, actual.ToString());
+            }
+
             while (stopBetting == false && wallet > 0 && s.Elapsed < TimeSpan.FromSeconds(time))
             {
 
