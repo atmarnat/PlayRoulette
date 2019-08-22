@@ -12,7 +12,8 @@ The game uses an executable in order to run a "wheel-like" object. In order to c
   1. Move the executable to \PlayRoulette\bin\Debug, in the PlayRoulette project
   1. Close the spinner project, open the PlayRoulette project
   1. Build the project again
-  1. Either run the PlayRoulette from VS or use the executable anywhere
+  1. Either run the PlayRoulette from VS.
+    1. Note: Both executables must be in the same directory for them to work together. PlayRoulette will work on its own, but Spinner will not.
 ```C#
 using System;
 using System.Collections.Generic;
