@@ -129,7 +129,7 @@ namespace TheGame
                 }
                 else if (choice == "blacks" || choice == "evens")
                 {
-                    guess = 1;
+                    guess = 2;
                     bets.Add(SetBet(binArr, choice, actual, guess, betAmount));
                     betsChoice.Add(choice);
                     betsMade.Add(betAmount);
