@@ -253,6 +253,7 @@ namespace TheGame
             Console.Write(".");
             Thread.Sleep(1250);
             Console.Write(".\n");
+            Thread.Sleep(1250);
 
 
             Console.WriteLine("\tDONE\n");
