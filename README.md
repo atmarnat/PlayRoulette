@@ -20,10 +20,8 @@ Note: Both executables must be in the same directory for them to work together. 
 
 ```C#
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace Spinner
 {
@@ -31,15 +29,17 @@ namespace Spinner
     {
         static void Main(string[] args)
         {
+            var consoleWnd = Process.GetCurrentProcess().MainWindowHandle;
+            Imports.SetWindowPos(consoleWnd, 0, 0, 0, 0, 0, Imports.SWP_NOSIZE | Imports.SWP_NOZORDER);
+
             Console.SetWindowSize(45, 20);
-            Console.SetWindowPosition(01, 01);
             
             int[] arr = new int[] {0, 18, 37, 14, 33, 10, 29, 6, 25, 2, 21, 5, 24, 17, 36, 13, 32, 9, 28, 26, 7, 30, 11, 34, 15, 22, 3, 20, 1, 23, 4, 27, 8, 31, 12, 35, 16, 19};
-            int i = arr[Int32.Parse(args[0])]; //Get the input from the arguments. This converts the real result to the case form.
+            int i = arr[Int32.Parse(args[0])]; //gets the actual number from args
             int spin = 0;
             int speed = 300;
             Console.ForegroundColor = ConsoleColor.White;
-            while (spin <= 38*20)//make length a random WHILE SPIN < 59
+            while (spin <= 38*20) //spins for about 1 minute 30 seconds
             {
                 Console.Clear();
                 Number x = new Number(i);
@@ -48,7 +48,7 @@ namespace Spinner
                 Console.WriteLine(x.representation);
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.WriteLine();
-                // USE THESE IF STATEMENTS TO MAKE SMOOTH SLOWDOWN and make wheel spin for about 60 seconds
+                // USE THESE IF STATEMENTS TO MAKE SMOOTH SLOWDOWN and make wheel spin for about 90 seconds
                 if (spin < 646) speed = 25;
                 if (spin >= 646 && spin < 722) speed = 100;
                 if (spin >= 722 && spin < 741) speed = 175;
@@ -62,6 +62,22 @@ namespace Spinner
                 else i = 0;
             }
             Console.ReadLine();
+        }
+        //a fun bit of code that sets the console window position
+        //https://stackoverflow.com/questions/32418918/reposition-console-window-relative-to-screen
+        //pulled directly from stack overflow link above
+        static class Imports
+        {
+            public static IntPtr HWND_BOTTOM = (IntPtr)1;
+            // public static IntPtr HWND_NOTOPMOST = (IntPtr)-2;
+            public static IntPtr HWND_TOP = (IntPtr)0;
+            // public static IntPtr HWND_TOPMOST = (IntPtr)-1;
+
+            public static uint SWP_NOSIZE = 1;
+            public static uint SWP_NOZORDER = 4;
+
+            [DllImport("user32.dll", EntryPoint = "SetWindowPos")]
+            public static extern IntPtr SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int Y, int cx, int cy, uint wFlags);
         }
     }
     public class Number
