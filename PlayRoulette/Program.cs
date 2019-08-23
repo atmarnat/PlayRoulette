@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.InteropServices;
 using TheGame;
 
@@ -13,12 +14,28 @@ namespace Main
             Imports.SetWindowPos(consoleWnd, 0, 375, 0, 0, 0, Imports.SWP_NOSIZE | Imports.SWP_NOZORDER);
 
             Console.SetWindowSize(105, 44);
-            Console.WriteLine("\t\t\t\t\t$~$~$~$~$~$~$");
-            Console.WriteLine("\t\t\t\t\t$ ROULETTE! $");
-            Console.WriteLine("\t\t\t\t\t$~$~$~$~$~$~$\n");
-            
-            Play.Game();
 
+            string[] arr = new string[] { "yes", "y", "ok", "si", "da", "oui", "roger", "shoots", "of course", "affirmative" };
+            string playAgain = "y";
+
+            while (arr.Any(playAgain.Equals))
+            {
+                Console.Clear();
+                Console.SetWindowSize(105, 44);
+                Console.WriteLine("\n\t\t\t\t\t$~$~$~$~$~$~$");
+                Console.WriteLine("\t\t\t\t\t$ ROULETTE! $");
+                Console.WriteLine("\t\t\t\t\t$~$~$~$~$~$~$\n");
+                Console.WriteLine("\t\t\t\t   Press any key to begin");
+                Console.ReadKey();
+                Console.WriteLine();
+
+                Play.Game();
+
+                Console.Write("\n\nPlay again? : ");
+                playAgain = Console.ReadLine().ToLower();
+            }
+
+            Console.Clear();
             Console.WriteLine("\n\t\t\t\t   $~$~$~$~$~$~$~$~$~$~$~$~$");
             Console.WriteLine("\t\t\t\t   $ Thank's for playing!! $");
             Console.WriteLine("\t\t\t\t   $~$~$~$~$~$~$~$~$~$~$~$~$\n");

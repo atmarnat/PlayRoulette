@@ -280,6 +280,10 @@ namespace TheGame
             }
 
             Console.WriteLine($"Amont left in Wallet: ${wallet.ToString("#,##0.00")}");
+
+            Console.WriteLine("Press any key to continue:");
+            Console.ReadKey();
+            Process.Start("cmd.exe", "/c taskkill /IM Spinner.exe");
         }
         static int getChoice() //function to get the choice of the user, with error checking
         {
