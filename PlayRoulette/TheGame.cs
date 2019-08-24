@@ -158,7 +158,7 @@ namespace TheGame
                 else if (choice == "split") //checking rows, very unclean, but it probably works
                 {
                     bool flag = true;
-                    int secondGuess = new int();
+                    int secondGuess = 0;
                     Console.Write("\tPick a bin 0-37(37 is 00): ");
                     guess = getChoice();
                     if (guess == 0) secondGuess = 37;
