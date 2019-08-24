@@ -36,14 +36,14 @@ namespace Roulette
         public void Evens()
         {
             multiplier = 1 + 1;
-            if (actual.Number % 2 == 0)
+            if (actual.Number % 2 == 0 && actual.Number != 0)
                 amount = multiplier * amount;
             else amount = 0;
         }
         public void Odds()
         {
             multiplier = 1 + 1;
-            if (actual.Number % 2 == 1)
+            if (actual.Number % 2 == 1 && actual.Number != 37)
                 amount = multiplier * amount;
             else amount = 0;
         }
